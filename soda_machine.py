@@ -10,7 +10,7 @@ class SodaMachine:
     def fill_register(self):
         """Method will fill SodaMachine's register with certain amounts of each coin when called."""
         for index in range(8):
-            self.register.append(coins.Quarter())
+            self.register.append(coins.Quarter(index))
         for index in range(10):
             self.register.append(coins.Dime())
         for index in range(20):
@@ -96,7 +96,7 @@ class SodaMachine:
     def get_coin_from_register(self, coin_name):
         """Removes and returns a coin from register"""
         for coin in self.register:
-            if coin.name == "coin_name":
+            if coin.name == coin_name:
                 self.register.remove(coin)
                 return coin
         return None
@@ -104,7 +104,7 @@ class SodaMachine:
     def register_has_coin(self, coin_name):
         """Searches register for a type of coin, returns True if coin is found"""
         for coin in self.register:
-            if coin.name == "coin_name":
+            if coin.name == coin_name:
                 return True
         return False
 
