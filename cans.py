@@ -3,7 +3,6 @@ class Can:
         self.name = name
         self.price = price
 
-
 class Cola(Can):
     def __init__(self):
         super(Cola, self).__init__("Cola", 0.60)
