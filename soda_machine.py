@@ -1,7 +1,6 @@
 import coins
 import user_interface
 import cans
-from customer import Customer
 
 class SodaMachine:
     def __init__(self):
@@ -9,7 +8,7 @@ class SodaMachine:
         self.inventory = []
         self.fill_register()
         self.fill_inventory()
-        self.customer_coins = Customer()
+        
 
         
 
@@ -45,7 +44,7 @@ class SodaMachine:
 
         selected_soda = self.get_inventory_soda(selected_soda_name)
 
-        customer_payment = self.customer_coins.gather_coins_from_wallet(selected_soda) 
+        customer_payment = customer.gather_coins_from_wallet(selected_soda) 
 
         self.calculate_transaction(customer_payment, selected_soda, customer)
 
@@ -110,7 +109,7 @@ class SodaMachine:
     def register_has_coin(self, coin_name):
         """Searches register for a type of coin, returns True if coin is found"""
         for coin in self.register:
-            if coin.name == coin_name:
+            if coin_name == coin.name:
                 return True
         return False
 
